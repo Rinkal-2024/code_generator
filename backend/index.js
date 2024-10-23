@@ -8,7 +8,9 @@ const app = express();
 const PORT = 8000;
 const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 
-app.use(cors());
+app.use(cors({
+    origin:'https://generativeai-nine.vercel.app',
+}));
 app.use(bodyParser.json());
 
 app.post('/generate-code', async (req, res) => {
